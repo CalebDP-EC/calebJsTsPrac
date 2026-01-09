@@ -1,0 +1,34 @@
+{
+  "name": "Node.js Practice",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-20-bullseye",
+
+  // Configure tool-specific properties.
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+          "source.fixAll.eslint": "explicit"
+        }
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "eg2.tslint", 
+        "christian-kohler.npm-intellisense"
+      ]
+    }
+  },
+
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  // Port 3000 is standard for many Node apps (Express, React, etc.)
+  "forwardPorts": [3000],
+
+  // Use 'postCreateCommand' to run commands after the container is created.
+  // This will install dependencies automatically if you have a package.json.
+  "postCreateCommand": "npm install",
+
+  // Set the remote user to node (the image comes with a non-root user 'node')
+  "remoteUser": "node"
+}
